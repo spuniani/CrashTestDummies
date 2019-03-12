@@ -1335,12 +1335,11 @@ public class FireBaseNotificationService extends JobIntentService {
             builder = new NotificationCompat.Builder(context);
         }
         // NotificationManager notificationManager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
-        Notification notification = builder.build();
-        notification.flags |= Notification.FLAG_AUTO_CANCEL;
-        builder.setSmallIcon(R.drawable.icon_app)
+        Notification notification = builder.setSmallIcon(R.drawable.icon_app)
                 .setContent(remoteViews)
                 .setContentText(message)
                 .build();
+        notification.flags |= Notification.FLAG_AUTO_CANCEL;
         notification.bigContentView = remoteViews;
         notification.contentView = smallRemoteView;
         Log.d("Notification", Log.getStackTraceString(new
